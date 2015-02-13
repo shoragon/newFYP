@@ -5,6 +5,9 @@ import java.net.URL;
 //import org.apache.commons.logging.Log;
 //import org.apache.commons.logging.LogFactory;
 
+
+import java.util.List;
+
 import com.google.gdata.client.GoogleService;
 import com.google.gdata.client.authn.oauth.GoogleOAuthHelper;
 import com.google.gdata.client.authn.oauth.GoogleOAuthParameters;
@@ -16,6 +19,8 @@ import com.google.gdata.client.spreadsheet.SpreadsheetService;
 import com.google.gdata.data.BaseEntry;
 import com.google.gdata.data.BaseFeed;
 import com.google.gdata.data.Feed;
+import com.google.gdata.data.spreadsheet.SpreadsheetEntry;
+import com.google.gdata.data.spreadsheet.SpreadsheetFeed;
 import com.google.gdata.util.AuthenticationException;
 import com.google.gdata.util.ServiceException;
 
@@ -25,11 +30,11 @@ public class importdata{
 	    * 
 	    * @param clientID client ID received from registering the application with Google
 	           * @param clientSecret client Secret received from registering the application with Google
-	    * @throws AuthenticationException if the service is unable to validate the
-	    *         oauth2 parameters.
+	 * @throws ServiceException 
+	 * @throws IOException 
 	    */
 	   public void loginOAuth2(String clientID, String clientSecret)
-	       throws AuthenticationException {
+	       throws IOException, ServiceException {
 
 	      String SCOPES = "https://docs.google.com/feeds https://spreadsheets.google.com/feeds";
 	      
